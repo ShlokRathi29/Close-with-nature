@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Close to Nature — Handmade Natural Skincare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Pinyon+Script&display=swap"
+    rel="stylesheet" />
+  <title>Close to Nature | Handmade Natural Skincare in India</title>
+
+  <meta name="description"
+    content="Close to Nature offers handmade natural soaps, chemical-free skincare products crafted with pure ingredients in Maharashtra. Shop organic soaps now.">
+
+  <meta name="keywords"
+    content="natural soap India, handmade soap Maharashtra, organic skincare, herbal soap, chemical free soap">
+
+  <meta name="author" content="Close to Nature">
+
+  <meta property="og:title" content="Close to Nature - Handmade Skincare">
+  <meta property="og:description" content="Pure handmade natural soaps made with love and botanical ingredients.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.vercel.app">
+
+  <link rel="canonical" href="https://yourdomain.vercel.app">
+  <style>
+    :root {
+      --pink: #F8E8EE;
+      --cream: #FFF1F2;
+      --beige: #F5E6E8;
+      --rose: #FDE2E4;
+      --rose-dark: #E8A0B0;
+      --rose-deep: #C97B8A;
+      --text: #4A2D35;
+      --text-light: #9B7B83;
+      --white: #ffffff;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Custom cursor */
+    #cursor {
+      width: 12px;
+      height: 12px;
+      background: var(--rose-deep);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease, background 0.2s;
+      transform: translate(-50%, -50%);
+    }
+
+    #cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid var(--rose-dark);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transition: transform 0.35s ease, width 0.3s, height 0.3s, opacity 0.3s;
+      transform: translate(-50%, -50%);
+      opacity: 0.6;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(255, 241, 242, 0.7);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(232, 160, 176, 0.2);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 2rem;
+      color: var(--rose-deep);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--rose-deep);
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--cream) 0%, var(--pink) 50%, var(--rose) 100%);
+      padding: 0 2rem;
+    }
+
+    /* Floating petals */
+    .petal {
+      position: absolute;
+      border-radius: 50% 0 50% 0;
+      opacity: 0;
+      animation: floatPetal linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatPetal {
+      0% {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 0.7;
+      }
+
+      95% {
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: translateY(-10vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* Decorative circles */
+    .hero-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(253, 226, 228, 0.6), transparent 70%);
+      animation: pulse 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: scale(1.08);
+        opacity: 0.8;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose-deep);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp 1s ease 0.6s forwards;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--rose-deep);
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      color: var(--text-light);
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.9s forwards;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rose-dark), transparent);
+      margin: 2rem auto;
+      opacity: 0;
+      animation: fadeIn 1s ease 1.1s forwards;
+    }
+
+    .hero-cta {
+      opacity: 0;
+      animation: fadeUp 1s ease 1.3s forwards;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2.8rem;
+      background: transparent;
+      border: 1.5px solid var(--rose-dark);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 100px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--rose-deep);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn-primary:hover {
+      color: white;
+      border-color: var(--rose-deep);
+      letter-spacing: 0.25em;
+    }
+
+    .btn-primary:hover::before {
+      transform: scaleX(1);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 7rem 4rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose-dark);
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--rose-deep);
+    }
+
+    /* ===== ABOUT ===== */
+    #about {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+      height: 500px;
+    }
+
+    .about-blob {
+      position: absolute;
+      width: 380px;
+      height: 420px;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--pink) 100%);
+      border-radius: 60% 40% 50% 50% / 60% 50% 50% 40%;
+      animation: blobMorph 8s ease-in-out infinite;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes blobMorph {
+
+      0%,
+      100% {
+        border-radius: 60% 40% 50% 50% / 60% 50% 50% 40%;
+      }
+
+      33% {
+        border-radius: 40% 60% 60% 40% / 50% 60% 40% 50%;
+      }
+
+      66% {
+        border-radius: 50% 50% 40% 60% / 40% 50% 60% 50%;
+      }
+    }
+
+    .about-img-frame {
+      position: absolute;
+      width: 320px;
+      height: 360px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(201, 123, 138, 0.25);
+
+      /* center content */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #fff;
+      /* optional for product background */
+    }
+
+    .about-img-frame img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .about-accent {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border: 1px solid rgba(232, 160, 176, 0.4);
+      border-radius: 50%;
+      top: 10%;
+      right: 5%;
+      animation: spin 20s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+
+    .pillar {
+      padding: 1.5rem;
+      background: var(--pink);
+      border-radius: 16px;
+      border: 1px solid rgba(232, 160, 176, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .pillar:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(201, 123, 138, 0.15);
+    }
+
+    .pillar-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .pillar p {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ===== SOAPS COLLECTION ===== */
+    #soaps {
+      background: linear-gradient(180deg, var(--pink) 0%, var(--cream) 100%);
+      text-align: center;
+    }
+
+    #soaps .section-header {
+      margin-bottom: 4rem;
+    }
+
+    .soaps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .soap-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      cursor: none;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease;
+      border: 1px solid rgba(232, 160, 176, 0.15);
+      position: relative;
+    }
+
+    .soap-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 30px 70px rgba(201, 123, 138, 0.25);
+    }
+
+    .soap-card:hover .soap-img img {
+      transform: scale(1.08);
+    }
+
+    .soap-card:hover .soap-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .soap-img {
+      height: 280px;
+      overflow: hidden;
+      position: relative;
+      background: var(--pink);
+    }
+
+    .soap-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .soap-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose-deep);
+      font-weight: 500;
+    }
+
+    .soap-info {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(0deg, rgba(74, 45, 53, 0.85) 0%, transparent 100%);
+      padding: 3rem 1.5rem 1.5rem;
+      color: white;
+    }
+
+    .soap-info span {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .soap-body {
+      padding: 1.5rem;
+    }
+
+    .soap-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .soap-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    .soap-btn {
+      display: inline-block;
+      padding: 0.6rem 1.8rem;
+      border: 1px solid var(--rose-dark);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rose-deep);
+      background: transparent;
+      cursor: none;
+      transition: all 0.3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .soap-btn:hover {
+      background: var(--rose-deep);
+      color: white;
+      border-color: var(--rose-deep);
+    }
+
+    /* ===== MODAL ===== */
+    #modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(74, 45, 53, 0.5);
+      backdrop-filter: blur(8px);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      padding: 2rem;
+    }
+
+    #modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--cream);
+      border-radius: 28px;
+      max-width: 860px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      transform: scale(0.9) translateY(30px);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      max-height: 90vh;
+      box-shadow: 0 50px 100px rgba(74, 45, 53, 0.3);
+    }
+
+    #modal-overlay.active .modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-img {
+      height: 100%;
+      min-height: 450px;
+      overflow: hidden;
+      background: var(--pink);
+    }
+
+    .modal-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-content {
+      padding: 3rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .modal-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--rose-dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .modal-desc {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1.8rem;
+    }
+
+    .modal-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+    }
+
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      padding: 0.3rem 0.9rem;
+      background: var(--rose);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      color: var(--rose-deep);
+      font-weight: 400;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 42px;
+      height: 42px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: none;
+      border: 1px solid rgba(232, 160, 176, 0.3);
+      font-size: 1.2rem;
+      color: var(--text-light);
+      transition: all 0.2s;
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      background: var(--rose-deep);
+      color: white;
+      transform: rotate(90deg);
+    }
+
+    /* ===== COMING SOON ===== */
+    #coming-soon {
+      background: var(--text);
+      text-align: center;
+      color: var(--cream);
+    }
+
+    #coming-soon .section-label {
+      color: var(--rose-dark);
+    }
+
+    #coming-soon .section-title {
+      color: var(--cream);
+    }
+
+    #coming-soon .section-title em {
+      color: var(--rose-dark);
+    }
+
+    .coming-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 3rem auto 0;
+    }
+
+    .coming-card {
+      padding: 2rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.04);
+      cursor: default;
+    }
+
+    .coming-card:hover {
+      border-color: rgba(232, 160, 176, 0.4);
+      background: rgba(253, 226, 228, 0.06);
+      transform: translateY(-5px);
+    }
+
+    .coming-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .coming-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--rose);
+      margin-bottom: 0.3rem;
+    }
+
+    .coming-card p {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.1em;
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.25rem 0.8rem;
+      background: rgba(253, 226, 228, 0.1);
+      border: 1px solid rgba(232, 160, 176, 0.25);
+      border-radius: 100px;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rose-dark);
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: var(--white);
+      text-align: center;
+    }
+
+    .contact-card {
+      max-width: 600px;
+      margin: 3rem auto 0;
+      background: linear-gradient(135deg, var(--pink), var(--rose));
+      border-radius: 28px;
+      padding: 3.5rem;
+      border: 1px solid rgba(232, 160, 176, 0.3);
+    }
+
+    .contact-logo {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 2.5rem;
+      color: var(--rose-deep);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-address {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin: 1rem 0 2rem;
+    }
+
+    .contact-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: #25D366;
+      color: white;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      cursor: none;
+    }
+
+    .btn-wa:hover {
+      background: #1eba57;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--rose-deep);
+      color: white;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      cursor: none;
+    }
+
+    .btn-call:hover {
+      background: var(--text);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(201, 123, 138, 0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 2.2rem;
+      color: var(--rose-dark);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0.12em;
+      margin-top: 0.3rem;
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(232, 160, 176, 0.3);
+      margin: 1.5rem auto;
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.4s;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 5rem 1.5rem;
+      }
+
+      #about {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-visual {
+        height: 350px;
+      }
+
+      .modal {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-img {
+        min-height: 250px;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 14vw, 5rem);
+      }
+
+      .coming-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .soaps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .coming-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-card {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    /* Decorative floral ornament */
+    .ornament {
+      font-size: 1.2rem;
+      color: var(--rose-dark);
+      opacity: 0.5;
+      letter-spacing: 0.5rem;
+      display: block;
+      margin: 0.8rem 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Close to Nature</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#soaps">Soaps</a></li>
+      <li><a href="#coming-soon">Coming Soon</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <!-- Background circles -->
+    <div class="hero-circle" style="width:600px;height:600px;top:-10%;right:-15%;"></div>
+    <div class="hero-circle" style="width:350px;height:350px;bottom:5%;left:-8%;animation-delay:2s;"></div>
+    <div class="hero-circle" style="width:200px;height:200px;top:20%;left:10%;animation-delay:4s;"></div>
+
+    <!-- Petals (generated by JS) -->
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">✦ Handcrafted with Love ✦</p>
+      <h1 class="hero-title">Close to<br /><em>Nature</em></h1>
+      <p class="hero-tagline">Handmade Natural Skincare — Pure, Gentle, Beautiful</p>
+      <div class="hero-divider"></div>
+      <div class="hero-cta">
+        <a href="#soaps" class="btn-primary">Explore Soaps</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-visual reveal">
+      <div class="about-blob"></div>
+      <div class="about-img-frame">
+        <img src="Gemini_Generated_Image_odihgtodihgtodih.png" alt="Natural Soap"
+          onerror="this.style.background='#FDE2E4';this.style.display='block'" />
+      </div>
+      <div class="about-accent"></div>
+    </div>
+    <div class="about-text">
+      <p class="section-label reveal">Our Story</p>
+      <h2 class="section-title reveal reveal-delay-1">Made with <em>nature,</em><br />made for you</h2>
+      <p class="reveal reveal-delay-2">At Close to Nature, every product is born from a deep love for pure ingredients
+        and mindful skincare. Based in the heart of Virar West, Palghar, we handcraft each piece with care, intention,
+        and the finest natural ingredients.</p>
+      <p class="reveal reveal-delay-2">We believe your skin deserves only the best — no harsh chemicals, no hidden
+        toxins. Just nature, in its most nourishing form.</p>
+      <div class="about-pillars">
+        <div class="pillar reveal reveal-delay-1">
+          <div class="pillar-icon">🌿</div>
+          <h4>100% Natural</h4>
+          <p>Pure botanical ingredients, thoughtfully sourced.</p>
+        </div>
+        <div class="pillar reveal reveal-delay-2">
+          <div class="pillar-icon">🧴</div>
+          <h4>Chemical Free</h4>
+          <p>No sulfates, parabens, or synthetic fragrances.</p>
+        </div>
+        <div class="pillar reveal reveal-delay-3">
+          <div class="pillar-icon">🤲</div>
+          <h4>Handmade</h4>
+          <p>Every bar crafted by hand with love and care.</p>
+        </div>
+        <div class="pillar reveal reveal-delay-4">
+          <div class="pillar-icon">🌸</div>
+          <h4>Skin Friendly</h4>
+          <p>Gentle enough for all skin types, even sensitive.</p>
+        </div>
+      </div>
+    </div>
+    <section>
+      <h2>Natural Handmade Skincare Products in India</h2>
+      <p>
+        Close to Nature is a handmade skincare brand based in Maharashtra, India,
+        offering chemical-free soaps made from natural ingredients like turmeric,
+        honey, rose, and essential oils. Our products are designed for healthy,
+        glowing skin without harsh chemicals.
+      </p>
+    </section>
+  </section>
+
+  <!-- SOAPS COLLECTION -->
+  <section id="soaps">
+    <div class="section-header">
+      <p class="section-label reveal">Our Collection</p>
+      <h2 class="section-title reveal reveal-delay-1">Handmade Natural <em>Soaps</em></h2>
+      <span class="ornament reveal reveal-delay-2">✦ ✦ ✦</span>
+    </div>
+
+    <div class="soaps-grid" id="soaps-grid">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div id="modal-overlay">
+    <div class="modal" style="position:relative;">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-img">
+        <img id="modal-img" src="" alt="" />
+      </div>
+      <div class="modal-content">
+        <p class="modal-label">Handmade Natural Soap</p>
+        <h2 class="modal-title" id="modal-title"></h2>
+        <p class="modal-desc" id="modal-desc"></p>
+        <p class="modal-section-title">✦ Key Benefits</p>
+        <div class="modal-tags" id="modal-benefits"></div>
+        <p class="modal-section-title">✦ Natural Ingredients</p>
+        <div class="modal-tags" id="modal-ingredients"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMING SOON -->
+  <section id="coming-soon">
+    <p class="section-label reveal">What's Next</p>
+    <h2 class="section-title reveal reveal-delay-1">More Natural Products<br /><em>Coming Soon</em></h2>
+    <p class="reveal reveal-delay-2"
+      style="color:rgba(255,255,255,0.5);font-size:0.9rem;max-width:500px;margin:0 auto;">We're working hard to bring
+      more beautiful natural products to complete your self-care ritual.</p>
+
+    <div class="coming-grid">
+      <div class="coming-card reveal reveal-delay-1">
+        <span class="coming-icon">🧴</span>
+        <h3>Shampoo</h3>
+        <p>Natural Hair Care</p>
+        <span class="coming-soon-badge">Coming Soon</span>
+      </div>
+      <div class="coming-card reveal reveal-delay-2">
+        <span class="coming-icon">💧</span>
+        <h3>Hair Oil</h3>
+        <p>Nourishing Blend</p>
+        <span class="coming-soon-badge">Coming Soon</span>
+      </div>
+      <div class="coming-card reveal reveal-delay-3">
+        <span class="coming-icon">🌊</span>
+        <h3>Face Wash</h3>
+        <p>Gentle Cleansing</p>
+        <span class="coming-soon-badge">Coming Soon</span>
+      </div>
+      <div class="coming-card reveal reveal-delay-1">
+        <span class="coming-icon">🌷</span>
+        <h3>Lip Balm</h3>
+        <p>Hydrating Care</p>
+        <span class="coming-soon-badge">Coming Soon</span>
+      </div>
+      <div class="coming-card reveal reveal-delay-2">
+        <span class="coming-icon">✨</span>
+        <h3>Cream</h3>
+        <p>Moisturizing Glow</p>
+        <span class="coming-soon-badge">Coming Soon</span>
+      </div>
+      <div class="coming-card reveal reveal-delay-3">
+        <span class="coming-icon">🥛</span>
+        <h3>Lotion</h3>
+        <p>Body Softening</p>
+        <span class="coming-soon-badge">Coming Soon</span>
+      </div>
+      <div class="coming-card reveal reveal-delay-1">
+        <span class="coming-icon">🌺</span>
+        <h3>Scrub</h3>
+        <p>Exfoliating Ritual</p>
+        <span class="coming-soon-badge">Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label reveal">Get in Touch</p>
+    <h2 class="section-title reveal reveal-delay-1">We'd love to <em>hear from you</em></h2>
+    <div class="contact-card reveal reveal-delay-2">
+      <div class="contact-logo">Close to Nature</div>
+      <p class="contact-address">
+        Virar West, Palghar, Maharashtra<br />
+        📞 +91 92843505537
+      </p>
+      <div class="contact-btns">
+        <a href="https://wa.me/91123450987" class="btn-wa" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          WhatsApp Us
+        </a>
+        <a href="tel:+91123450987" class="btn-call">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg>
+          Call Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Close to Nature</span>
+    <div class="footer-divider"></div>
+    <p>Handmade Natural Skincare — Pure, Gentle, Beautiful</p>
+    <p style="margin-top:0.5rem;">Virar West, Palghar &nbsp;·&nbsp; +91 123 450 987</p>
+    <p style="margin-top:1.5rem;font-size:0.68rem;opacity:0.3;">© 2025 Close to Nature. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ====== CUSTOM CURSOR ======
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animCursor() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+    document.querySelectorAll('a, button, .soap-card, .pillar, .coming-card').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+        ring.style.width = '60px'; ring.style.height = '60px';
+        ring.style.opacity = '0.4';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+        ring.style.width = '36px'; ring.style.height = '36px';
+        ring.style.opacity = '0.6';
+      });
+    });
+
+    // ====== PETALS ======
+    const hero = document.getElementById('hero');
+    const petalColors = ['#FDE2E4', '#F8E8EE', '#FFF0F0', '#FADDE1', '#F5C6CB'];
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'petal';
+      const size = Math.random() * 18 + 8;
+      p.style.cssText = `
+    width:${size}px;height:${size * 0.7}px;
+    left:${Math.random() * 100}%;
+    background:${petalColors[Math.floor(Math.random() * petalColors.length)]};
+    animation-duration:${Math.random() * 12 + 10}s;
+    animation-delay:${Math.random() * 10}s;
+    opacity:0;
+  `;
+      hero.appendChild(p);
+    }
+
+    // ====== SOAP DATA ======
+    const soaps = [
+      {
+        img: 'ChatGPT Image Mar 10, 2026, 11_40_01 AM.png',
+        name: 'Osmanthus Bloom Soap',
+        short: 'A delicate white floral bar with golden osmanthus petals, beautifully pressed into the surface.',
+        desc: 'Inspired by the soft elegance of osmanthus blossoms, this handcrafted bar is made with nourishing white kaolin clay and real dried osmanthus flowers. It cleanses gently while leaving skin soft, luminous, and faintly floral.',
+        benefits: ['Deep Moisturizing', 'Gentle Cleansing', 'Brightening', 'Anti-inflammatory'],
+        ingredients: ['White Kaolin Clay', 'Osmanthus Petals', 'Coconut Oil', 'Shea Butter', 'Rice Bran Oil'],
+        badge: 'Best Seller'
+      },
+      {
+        img: 'ChatGPT Image Mar 10, 2026, 11_39_54 AM.png',
+        name: 'Midnight Rose Soap',
+        short: 'A luxurious jet-black rose-carved soap, rich with activated charcoal and deep cleansing botanicals.',
+        desc: 'Sculpted in the form of a blooming black rose, this dramatic bar is formulated with activated charcoal to draw out impurities from pores. Infused with rose absolute and evening primrose oil for a rich, purifying lather that leaves skin silky smooth.',
+        benefits: ['Pore Cleansing', 'Detoxifying', 'Anti-bacterial', 'Deep Purifying'],
+        ingredients: ['Activated Charcoal', 'Rose Absolute', 'Evening Primrose', 'Castor Oil', 'Argan Oil'],
+        badge: 'Detox Bar'
+      },
+      {
+        img: 'ChatGPT Image Mar 10, 2026, 11_39_48 AM.png',
+        name: 'Honey Rose Duo',
+        short: 'A paired set — a smooth golden honey pebble and a wild rose soap with turmeric speckles.',
+        desc: 'This beautiful duo offers two textures and two experiences. The golden pebble bar is packed with raw honey and oat extract for soothing, plumping hydration. The rose-embossed turmeric bar brightens skin tone and reduces blemishes naturally.',
+        benefits: ['Brightening', 'Soothing', 'Hydrating', 'Anti-blemish'],
+        ingredients: ['Raw Honey', 'Turmeric', 'Oat Extract', 'Rose Hip', 'Sunflower Oil'],
+        badge: 'Duo Set'
+      },
+      {
+        img: 'ChatGPT Image Mar 10, 2026, 12_19_33 PM.png',
+        name: 'Butterfly Garden Soap',
+        short: 'An intricate butterfly & floral embossed bar — a luxurious blend of milk and botanical oils.',
+        desc: 'A true artisan masterpiece — each bar hand-pressed with an ornate butterfly and floral motif. Made with whole goat milk, calendula extract, and sweet almond oil, this gentle soap is perfect for sensitive skin and daily pampering.',
+        benefits: ['Ultra Gentle', 'Nourishing', 'Anti-aging', 'Skin Softening'],
+        ingredients: ['Goat Milk', 'Calendula Extract', 'Sweet Almond Oil', 'Vitamin E', 'Lavender Essential Oil'],
+        badge: 'Artisan'
+      }
+    ];
+
+    // ====== RENDER CARDS ======
+    const grid = document.getElementById('soaps-grid');
+    soaps.forEach((soap, i) => {
+      const delay = i * 0.1;
+      const card = document.createElement('div');
+      card.className = 'soap-card reveal';
+      card.style.transitionDelay = delay + 's';
+      card.innerHTML = `
+    <div class="soap-img">
+      <img src="${soap.img}" alt="${soap.name}" loading="lazy" onerror="this.parentElement.style.background='#FDE2E4'"/>
+      <span class="soap-badge">${soap.badge}</span>
+      <div class="soap-info"><span>Tap to explore →</span></div>
+    </div>
+    <div class="soap-body">
+      <h3 class="soap-name">${soap.name}</h3>
+      <p class="soap-desc">${soap.short}</p>
+      <button class="soap-btn" data-index="${i}">View Details</button>
+    </div>
+  `;
+      card.addEventListener('click', () => openModal(i));
+      grid.appendChild(card);
+    });
+
+    // ====== MODAL ======
+    const overlay = document.getElementById('modal-overlay');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalBenefits = document.getElementById('modal-benefits');
+    const modalIngredients = document.getElementById('modal-ingredients');
+
+    function openModal(i) {
+      const s = soaps[i];
+      modalImg.src = s.img;
+      modalTitle.textContent = s.name;
+      modalDesc.textContent = s.desc;
+      modalBenefits.innerHTML = s.benefits.map(b => `<span class="tag">${b}</span>`).join('');
+      modalIngredients.innerHTML = s.ingredients.map(ing => `<span class="tag">${ing}</span>`).join('');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // ====== SCROLL REVEAL ======
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ====== NAV SCROLL ======
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.background =
+        window.scrollY > 50 ? 'rgba(255,241,242,0.95)' : 'rgba(255,241,242,0.7)';
+    });
+  </script>
+</body>
+
+</html>
